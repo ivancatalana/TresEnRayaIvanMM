@@ -14,21 +14,48 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="600.0" stylesheets="@applicationVs.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tresenrayaivanmm.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tresenrayaivanmm.Controller">
    <bottom>
       <AnchorPane prefHeight="367.0" prefWidth="572.0" BorderPane.alignment="CENTER">
          <children>
             <FlowPane layoutX="38.0" layoutY="53.0" prefHeight="227.0" prefWidth="225.0">
                <children>
-                  <Button fx:id="button1" graphicTextGap="6.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" />
-                  <Button fx:id="button2" graphicTextGap="6.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" />
-                  <Button fx:id="button3" layoutX="85.0" layoutY="10.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" />
-                  <Button fx:id="button4" layoutX="160.0" layoutY="10.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" />
-                  <Button fx:id="button5" layoutX="10.0" layoutY="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" />
-                  <Button fx:id="button6" layoutX="85.0" layoutY="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" />
-                  <Button fx:id="button7" layoutX="160.0" layoutY="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" />
-                  <Button fx:id="button8" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" />
-                  <Button fx:id="button9" layoutX="85.0" layoutY="160.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" />
+                  <Button fx:id="button1" graphicTextGap="6.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="button2" graphicTextGap="6.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="button3" layoutX="85.0" layoutY="10.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="button4" layoutX="160.0" layoutY="10.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="button5" layoutX="10.0" layoutY="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="button6" layoutX="85.0" layoutY="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="button7" layoutX="160.0" layoutY="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="button8" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="button9" layoutX="85.0" layoutY="160.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
                </children>
             </FlowPane>
             <Button fx:id="startButton" layoutX="330.0" layoutY="292.0" mnemonicParsing="false" onAction="#restartGame" prefHeight="42.0" prefWidth="258.0" text="Start">
@@ -39,7 +66,10 @@
             <Text fx:id="playerO" layoutX="369.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player O = " />
             <Text fx:id="winsPlayerX" layoutX="466.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
             <Text fx:id="winsPlayerO" layoutX="466.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-            <Button layoutX="523.0" layoutY="14.0" mnemonicParsing="false" onAction="#showStatsTable" text="Stats" />
+            <Button layoutX="473.0" layoutY="14.0" mnemonicParsing="false" onAction="#showStatsTable" prefHeight="35.0" prefWidth="94.0" text="≣  Stats">
+               <font>
+                  <Font size="17.0" />
+               </font></Button>
             <Text fx:id="winnerText" layoutX="21.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tres en raya" textAlignment="CENTER" wrappingWidth="237.9443359375">
                <font>
                   <Font size="39.0" />
@@ -72,12 +102,13 @@
               <menus>
                 <Menu mnemonicParsing="false" style="-fx-background-color: black;" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" onAction="#exitApp" style="-fx-background-color: black;" text="Close" />
+                    <MenuItem fx:id="themeMenu" mnemonicParsing="false" onAction="#setTheme" style="-fx-text-fill: black;" text="Light Mode" />
+                        <MenuItem mnemonicParsing="false" onAction="#exitApp" style="-fx-text-fill: black;" text="Close" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" onAction="#showTutorial" style="-fx-background-color: black;" text="Tutorial" />
+                    <MenuItem mnemonicParsing="false" onAction="#showTutorial" style="-fx-text-fill: black;" text="Tutorial" />
                   </items>
                 </Menu>
               </menus>

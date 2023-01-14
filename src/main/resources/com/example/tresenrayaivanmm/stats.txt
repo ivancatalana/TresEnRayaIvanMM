@@ -1,8 +1,7 @@
-juan,1
+Joel,1
 pepe,4
-ivan,9
 popis,4
-peper,3
+Jordi,3
 Julian,2
-IvanMM,2
-Ivan,2
+Hao,2
+Ivan,6

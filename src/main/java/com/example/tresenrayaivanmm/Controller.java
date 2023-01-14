@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
@@ -62,6 +63,8 @@ public class Controller implements Initializable {
      @FXML
       private  Button startButton;
     @FXML
+    private MenuItem themeMenu;
+    @FXML
      private Text playerO;
     @FXML
     private Text playerX;
@@ -75,6 +78,8 @@ public class Controller implements Initializable {
     static Text textLastWinner=new Text("");
 
     static String textLastWinnerName="";
+
+    int theme = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -303,5 +308,22 @@ public class Controller implements Initializable {
     public void showTutorial() throws IOException {
         ControllerTutorial controllerTutorial = new ControllerTutorial();
         controllerTutorial.showTutorial();
+    }
+    public void setTheme(){
+        theme+=1;
+        if(theme%2!=0){
+            themeMenu.setText("Dark Mode");
+            setUpLightModeController();
+        }
+        else {
+            themeMenu.setText("Light Mode");
+            MainApp.setUpNightMode();
+        }
+    }
+    public void setUpLightModeController(){
+        MainApp.setUpLightMode();
+    }
+    public void setUpDarkModeController(){
+        MainApp.setUpNightMode();
     }
 }

@@ -1,0 +1,24 @@
+.root{
+    -fx-background-color: #F6F2E5;
+}
+.label{
+   -font-family: "'Rock Salt";
+   -fx-text-fill: "black";
+
+}
+.table-view{
+    -fx-background-color: transparent;
+}
+.table-view:focused{
+    -fx-background-color: transparent;
+}
+.table-row-cell:odd{
+    -fx-background-color: #DAD8E1;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:even{
+    -fx-background-color: #F1EFF8;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}

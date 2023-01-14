@@ -15,8 +15,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.LinearGradient;
+import javafx.scene.paint.Stop;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -44,6 +49,12 @@ public class ControllerStats {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        statsName.setBackground(
+                Background.fill(new LinearGradient(
+                0, 0, 1, 1, true,                      //sizing
+                CycleMethod.NO_CYCLE,                  //cycling
+                new Stop(0, Color.web("#F6F2E5")),     //colors
+                new Stop(1, Color.web("#7B7A79")))));
         Scene scene = new Scene(statsName,320,240);
         secondaryStage = new Stage();
         secondaryStage.setScene(scene);
@@ -54,10 +65,11 @@ public class ControllerStats {
     }
     public void acceptNameStats(){
         String winnerName= textFieldWinner.getText();
-        setFileWriterwinner(winnerName);
-        Controller.textLastWinnerName=winnerName;
-        secondaryStage.close();
-
+        if (!winnerName.equals(" ")) {
+            setFileWriterwinner(winnerName);
+            Controller.textLastWinnerName = winnerName;
+            secondaryStage.close();
+        }
 
     }
     public void closeStats() throws IOException {
@@ -111,7 +123,6 @@ public class ControllerStats {
 
         ArrayList<Persona>personas=new ArrayList<>();
         List<List<String>> records = new ArrayList<List<String>>();
-        boolean exist=false;
 
         try {
             FileReader fileReader = new FileReader(new File("src/main/resources/com/example/tresenrayaivanmm/stats.txt"));
@@ -175,8 +186,9 @@ public class ControllerStats {
         table.getColumns().add(rankColumn);
         table.getColumns().add(nameColumn);
         table.getColumns().add(intColumn);
-
-        s.setScene(new Scene(new BorderPane(table), 300, 300));
+        Scene scene = new  Scene(new BorderPane(table), 300, 300);
+        scene.getStylesheets().add(MainApp.class.getResource("applicationLight.css").toExternalForm());
+        s.setScene(scene);
         s.show();
 }
 }
