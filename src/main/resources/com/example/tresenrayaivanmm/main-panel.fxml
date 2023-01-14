@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
@@ -32,7 +35,7 @@
                <font>
                   <Font size="24.0" />
                </font></Button>
-            <Text fx:id="playerX" layoutX="368.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player X = " />
+            <Text fx:id="playerX" layoutX="368.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Rock Salt;" text="Player X = " />
             <Text fx:id="playerO" layoutX="369.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player O = " />
             <Text fx:id="winsPlayerX" layoutX="466.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
             <Text fx:id="winsPlayerO" layoutX="466.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
@@ -44,7 +47,7 @@
             </Text>
             <ImageView fitHeight="140.0" fitWidth="227.0" layoutX="363.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@tatuajes.jpg" />
+                  <Image url="@gameselect.jpg" />
                </image>
             </ImageView>
             <RadioButton layoutX="379.0" layoutY="80.0" mnemonicParsing="false" onAction="#setPlayerVsPlayer" selected="true" text="Player VS Player">
@@ -65,6 +68,20 @@
                   <Font size="21.0" />
                </font>
             </RadioButton>
+            <MenuBar layoutY="-19.0" prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: black;" stylesheets="@applicationVs.css">
+              <menus>
+                <Menu mnemonicParsing="false" style="-fx-background-color: black;" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#exitApp" style="-fx-background-color: black;" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#showTutorial" style="-fx-background-color: black;" text="Tutorial" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
          </children>
       </AnchorPane>
    </bottom>

@@ -1,5 +1,6 @@
 package com.example.tresenrayaivanmm;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -73,7 +74,7 @@ public class Controller implements Initializable {
 
     static Text textLastWinner=new Text("");
 
-    static Text textLastWinnerName=new Text("");
+    static String textLastWinnerName="";
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -295,5 +296,12 @@ public class Controller implements Initializable {
             }
         }
 
+    }
+    public void exitApp(){
+        Platform.exit();
+    }
+    public void showTutorial() throws IOException {
+        ControllerTutorial controllerTutorial = new ControllerTutorial();
+        controllerTutorial.showTutorial();
     }
 }

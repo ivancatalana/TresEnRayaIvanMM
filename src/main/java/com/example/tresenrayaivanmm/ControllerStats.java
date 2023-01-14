@@ -24,18 +24,21 @@ import java.io.*;
 import java.net.URL;
 import java.util.*;
 
-public class ControllerStats  {
+public class ControllerStats {
     private static Stage secondaryStage;
     @FXML
-    private Button acceptButton;
+    private TextField textFieldWinner;
     @FXML
-    private TextField textFieldWinner=new TextField(Controller.textLastWinnerName.getText());
-    public void showStatsName() {
-     //   textFieldWinner.setPromptText("Controller.textLastWinnerName.getText()");
+    private void initialize() {
+        textFieldWinner.setText(Controller.textLastWinnerName);
+    }
+
+
+    public void showStatsName (){
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(MainApp.class.getResource("stats-name.fxml"));
-        VBox statsName = new VBox(textFieldWinner);
-
+        VBox statsName = new VBox();
         try {
             statsName = (VBox) loader.load();
         } catch (IOException e) {
@@ -52,6 +55,7 @@ public class ControllerStats  {
     public void acceptNameStats(){
         String winnerName= textFieldWinner.getText();
         setFileWriterwinner(winnerName);
+        Controller.textLastWinnerName=winnerName;
         secondaryStage.close();
 
 
@@ -64,7 +68,6 @@ public class ControllerStats  {
         ArrayList<Persona>personas=new ArrayList<>();
         List<List<String>> records = new ArrayList<List<String>>();
         boolean exist=false;
-        Controller.textLastWinnerName.setText(td);
         try {
             FileReader fileReader = new FileReader(new File("src/main/resources/com/example/tresenrayaivanmm/stats.txt"));
             CSVReader csvReader = new CSVReader(fileReader);
@@ -92,7 +95,7 @@ public class ControllerStats  {
             FileWriter fileWriter = new FileWriter(new File("src/main/resources/com/example/tresenrayaivanmm/stats.txt"));
             fileWriter.write(fileTxt);
             fileWriter.close();
-
+            textFieldWinner.setText(td);
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -102,24 +105,7 @@ public class ControllerStats  {
             throw new RuntimeException(e);
         }
     }
-    public void showStatsTable() {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(MainApp.class.getResource("stats-list.fxml"));
-        BorderPane statsName = new BorderPane();
 
-        try {
-            statsName = (BorderPane) loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Scene scene = new Scene(statsName,520,340);
-        secondaryStage = new Stage();
-        secondaryStage.setScene(scene);
-        secondaryStage.setTitle("Lista de ganadores");
-        secondaryStage.show();
-        // Set person overview into the center of root layout.
-
-    }
     public void showStatsTable2() {
 
 

@@ -2,12 +2,16 @@
     -fx-background-color: #7B7A79;
 }
 .label{
-   -fx-font-family: "Lucida Console";
+   -font-family: "Lucida Console";
    -fx-text-fill: "white";
 
 }
-text-id{
-   -fx-font-family: "Lucida Console";
-   -fx-font-size: 50;
-   -fx-text-fill: "white";
-}
+
+text-idR{
+   -font-family: "Rock Salt";
+   -font-size: 24px;
+   -font-style: normal;
+   -font-variant: normal;
+   -font-weight: 700;
+   -fx-text-fill: "black";
+ }
