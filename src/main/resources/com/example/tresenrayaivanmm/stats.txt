@@ -1,0 +1,8 @@
+juan,1
+pepe,3
+ivan,5
+popis,4
+iban,1
+peper,3
+Julian,2
+Ivan,3

@@ -1,0 +1,13 @@
+.root{
+    -fx-background-color: #7B7A79;
+}
+.label{
+   -fx-font-family: "Lucida Console";
+   -fx-text-fill: "white";
+
+}
+text-id{
+   -fx-font-family: "Lucida Console";
+   -fx-font-size: 50;
+   -fx-text-fill: "white";
+}
