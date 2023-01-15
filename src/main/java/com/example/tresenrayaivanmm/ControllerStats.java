@@ -5,13 +5,9 @@ import com.example.tresenrayaivanmm.model.Persona;
 import com.opencsv.exceptions.CsvValidationException;
 import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -22,11 +18,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.net.URL;
 import java.util.*;
 
 public class ControllerStats {
@@ -43,9 +37,10 @@ public class ControllerStats {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(MainApp.class.getResource("stats-name.fxml"));
-        VBox statsName = new VBox();
+        new VBox();
+        VBox statsName;
         try {
-            statsName = (VBox) loader.load();
+            statsName = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -72,18 +67,18 @@ public class ControllerStats {
         }
 
     }
-    public void closeStats() throws IOException {
+    public void closeStats()  {
         secondaryStage.close();
     }
 
     private void setFileWriterwinner(String td) {
         ArrayList<Persona>personas=new ArrayList<>();
-        List<List<String>> records = new ArrayList<List<String>>();
+        List<List<String>> records = new ArrayList<>();
         boolean exist=false;
         try {
-            FileReader fileReader = new FileReader(new File("src/main/resources/com/example/tresenrayaivanmm/stats.txt"));
+            FileReader fileReader = new FileReader("src/main/resources/com/example/tresenrayaivanmm/stats.txt");
             CSVReader csvReader = new CSVReader(fileReader);
-            String[] values = null;
+            String[] values;
             String fileTxt="";
             while ((values = csvReader.readNext()) != null) {
                 records.add(Arrays.asList(values));
@@ -109,11 +104,7 @@ public class ControllerStats {
             fileWriter.close();
             textFieldWinner.setText(td);
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (CsvValidationException e) {
+        } catch (CsvValidationException | IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -125,7 +116,7 @@ public class ControllerStats {
         List<List<String>> records = new ArrayList<List<String>>();
 
         try {
-            FileReader fileReader = new FileReader(new File("src/main/resources/com/example/tresenrayaivanmm/stats.txt"));
+            FileReader fileReader = new FileReader("src/main/resources/com/example/tresenrayaivanmm/stats.txt");
             CSVReader csvReader = new CSVReader(fileReader);
             String[] values = null;
             while ((values = csvReader.readNext()) != null) {
@@ -136,11 +127,7 @@ public class ControllerStats {
             }
 
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (CsvValidationException e) {
+        } catch (CsvValidationException | IOException e) {
             throw new RuntimeException(e);
         }
 
@@ -187,7 +174,7 @@ public class ControllerStats {
         table.getColumns().add(nameColumn);
         table.getColumns().add(intColumn);
         Scene scene = new  Scene(new BorderPane(table), 300, 300);
-        scene.getStylesheets().add(MainApp.class.getResource("applicationLight.css").toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(MainApp.class.getResource("applicationLight.css")).toExternalForm());
         s.setScene(scene);
         s.show();
 }

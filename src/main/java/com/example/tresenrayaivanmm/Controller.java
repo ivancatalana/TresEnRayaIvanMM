@@ -6,8 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -60,8 +58,6 @@ public class Controller implements Initializable {
     private int playerTurn = 0;
 
     private int contadorTiradas = 0;
-     @FXML
-      private  Button startButton;
     @FXML
     private MenuItem themeMenu;
     @FXML
@@ -91,7 +87,7 @@ public class Controller implements Initializable {
         });
     }
     @FXML
-    void restartGame (ActionEvent event)  throws InterruptedException {
+    void restartGame (ActionEvent event)  {
         gameOver=false;
         buttons.forEach(this::resetButton);
         winnerText.setText("Tres en raya");
@@ -106,18 +102,21 @@ public class Controller implements Initializable {
              playerTurn=0;
          }
          else if (!playerVsCpu&&cpuVSCpu) {
-                 playerTurn = 0;
                  while (!gameOver) {
                      if (contadorTiradas == 8) {
                          contadorTiradas += 1;
                          for (Button b : buttons) {
                              if (!b.isDisabled()) {
                                  b.setDisable(true);
-                                 b.setText("X");
+                                 if (playerTurn % 2 != 0) {
+                                     b.setText("O");
+                                 }
+                                     else b.setText("X");
+
+                                 }
                              }
                          }
 
-                     }
                      else if (playerTurn % 2 != 0) {
                          contadorTiradas += 1;
                          Button cPU = findFreeButton();
@@ -224,7 +223,6 @@ public class Controller implements Initializable {
     }
     private Button findFreeButton(){
         int randomButton = ThreadLocalRandom.current().nextInt(0, 8);
-        boolean allDisabled=true;
 
         while( !buttons.get(randomButton).getText().isEmpty()){
             randomButton=ThreadLocalRandom.current().nextInt(0, 8);
@@ -248,7 +246,7 @@ public class Controller implements Initializable {
             };
 
             //X winner
-            if (line.equals("XXX")) {
+            if (line.equals("XXX")&&!gameOver) {
                 winnerText.setText("X Gana!");
                 contadorX += 1;
                 winsPlayerX.setText("" + contadorX);
@@ -258,7 +256,7 @@ public class Controller implements Initializable {
                 popUpStatsName();
             }
             //O winner
-            else if (line.equals("OOO")) {
+            else if (line.equals("OOO")&&!gameOver) {
                 winnerText.setText("O Gana!");
                 contadorO += 1;
                 winsPlayerO.setText("" + contadorO);
@@ -317,7 +315,7 @@ public class Controller implements Initializable {
         }
         else {
             themeMenu.setText("Light Mode");
-            MainApp.setUpNightMode();
+            setUpDarkModeController();
         }
     }
     public void setUpLightModeController(){

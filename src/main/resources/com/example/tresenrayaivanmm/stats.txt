@@ -4,4 +4,4 @@ popis,4
 Jordi,3
 Julian,2
 Hao,2
-Ivan,6
+Ivan,7
