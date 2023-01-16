@@ -7,8 +7,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -77,8 +80,10 @@ public class Controller implements Initializable {
     static String textLastWinnerName="";
 
     int theme = 0;
+    @FXML
+    private ImageView imageMode;
 
-
+    MainApp mainApp;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -322,10 +327,22 @@ public class Controller implements Initializable {
             setUpDarkModeController();
         }
     }
+    public void setMain(MainApp m){
+        mainApp=m;
+    }
     public void setUpLightModeController(){
-        MainApp.setUpLightMode();
+
+        mainApp.setUpLightMode();
+        File file = new File("src/main/resources/com/example/tresenrayaivanmm/data/light_game_select.jpeg");
+        Image image = new Image(file.toURI().toString());
+        imageMode.setImage(image);
+
     }
     public void setUpDarkModeController(){
-        MainApp.setUpNightMode();
+        mainApp.setUpNightMode();
+        File file = new File("src/main/resources/com/example/tresenrayaivanmm/data/gameselect.jpg");
+        Image image = new Image(file.toURI().toString());
+        imageMode.setImage(image);
+
     }
 }
