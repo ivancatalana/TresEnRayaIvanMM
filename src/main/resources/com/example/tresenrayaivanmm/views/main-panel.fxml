@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tresenrayaivanmm.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tresenrayaivanmm.controller.Controller">
    <bottom>
       <AnchorPane prefHeight="367.0" prefWidth="572.0" BorderPane.alignment="CENTER">
          <children>
@@ -75,9 +75,9 @@
                   <Font size="39.0" />
                </font>
             </Text>
-            <ImageView fitHeight="140.0" fitWidth="227.0" layoutX="363.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageMode" fitHeight="140.0" fitWidth="227.0" layoutX="363.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@gameselect.jpg" />
+                  <Image url="@../data/gameselect.jpg" />
                </image>
             </ImageView>
             <RadioButton layoutX="379.0" layoutY="80.0" mnemonicParsing="false" onAction="#setPlayerVsPlayer" selected="true" text="Player VS Player">
@@ -98,7 +98,7 @@
                   <Font size="21.0" />
                </font>
             </RadioButton>
-            <MenuBar layoutY="-19.0" prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: black;" stylesheets="@applicationVs.css">
+            <MenuBar layoutY="-19.0" prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: black;" stylesheets="@../styles/applicationVs.css">
               <menus>
                 <Menu mnemonicParsing="false" style="-fx-background-color: black;" text="File">
                   <items>

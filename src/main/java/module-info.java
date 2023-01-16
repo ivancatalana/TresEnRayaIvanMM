@@ -6,4 +6,8 @@ module com.example.tresenrayaivanmm {
 
     opens com.example.tresenrayaivanmm to javafx.fxml;
     exports com.example.tresenrayaivanmm;
+    opens com.example.tresenrayaivanmm.controller to javafx.fxml;
+    opens com.example.tresenrayaivanmm.views to javafx.fxml;
+
+
 }

@@ -1,7 +1,8 @@
-package com.example.tresenrayaivanmm;
-import com.opencsv.CSVReader;
+package com.example.tresenrayaivanmm.controller;
 
+import com.example.tresenrayaivanmm.MainApp;
 import com.example.tresenrayaivanmm.model.Persona;
+import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
@@ -20,7 +21,10 @@ import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
 import javafx.stage.Stage;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class ControllerStats {
@@ -36,7 +40,7 @@ public class ControllerStats {
     public void showStatsName (){
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(MainApp.class.getResource("stats-name.fxml"));
+        loader.setLocation(MainApp.class.getResource("views/stats-name.fxml"));
         new VBox();
         VBox statsName;
         try {
@@ -76,7 +80,7 @@ public class ControllerStats {
         List<List<String>> records = new ArrayList<>();
         boolean exist=false;
         try {
-            FileReader fileReader = new FileReader("src/main/resources/com/example/tresenrayaivanmm/stats.txt");
+            FileReader fileReader = new FileReader("src/main/resources/com/example/tresenrayaivanmm/data/stats.txt");
             CSVReader csvReader = new CSVReader(fileReader);
             String[] values;
             String fileTxt="";
@@ -99,7 +103,7 @@ public class ControllerStats {
             for (Persona p:personas){
                 fileTxt += p.getName()+","+p.getPartidasGanadas()+"\n";
             }
-            FileWriter fileWriter = new FileWriter(new File("src/main/resources/com/example/tresenrayaivanmm/stats.txt"));
+            FileWriter fileWriter = new FileWriter(new File("src/main/resources/com/example/tresenrayaivanmm/data/stats.txt"));
             fileWriter.write(fileTxt);
             fileWriter.close();
             textFieldWinner.setText(td);
@@ -116,7 +120,7 @@ public class ControllerStats {
         List<List<String>> records = new ArrayList<List<String>>();
 
         try {
-            FileReader fileReader = new FileReader("src/main/resources/com/example/tresenrayaivanmm/stats.txt");
+            FileReader fileReader = new FileReader("src/main/resources/com/example/tresenrayaivanmm/data/stats.txt");
             CSVReader csvReader = new CSVReader(fileReader);
             String[] values = null;
             while ((values = csvReader.readNext()) != null) {
@@ -174,7 +178,7 @@ public class ControllerStats {
         table.getColumns().add(nameColumn);
         table.getColumns().add(intColumn);
         Scene scene = new  Scene(new BorderPane(table), 300, 300);
-        scene.getStylesheets().add(Objects.requireNonNull(MainApp.class.getResource("applicationLight.css")).toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(MainApp.class.getResource("styles/applicationLight.css")).toExternalForm());
         s.setScene(scene);
         s.show();
 }

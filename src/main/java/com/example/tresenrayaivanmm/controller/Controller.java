@@ -1,5 +1,6 @@
-package com.example.tresenrayaivanmm;
+package com.example.tresenrayaivanmm.controller;
 
+import com.example.tresenrayaivanmm.MainApp;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -77,6 +78,8 @@ public class Controller implements Initializable {
 
     int theme = 0;
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         buttons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7,button8,button9));
@@ -137,6 +140,7 @@ public class Controller implements Initializable {
 
 
     public void resetButton(Button button){
+        contadorTiradas=0;
         button.setDisable(false);
         button.setText("");
     }

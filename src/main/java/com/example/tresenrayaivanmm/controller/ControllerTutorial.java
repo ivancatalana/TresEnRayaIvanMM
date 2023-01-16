@@ -1,12 +1,10 @@
-package com.example.tresenrayaivanmm;
+package com.example.tresenrayaivanmm.controller;
 
-import javafx.application.Platform;
+import com.example.tresenrayaivanmm.MainApp;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
@@ -20,7 +18,7 @@ public class ControllerTutorial {
     public void showTutorial () throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(MainApp.class.getResource("tutorial.fxml"));
+        loader.setLocation(MainApp.class.getResource("views/tutorial.fxml"));
         AnchorPane tutorial = new AnchorPane();
         s = new Stage();
             tutorial = (AnchorPane) loader.load();
